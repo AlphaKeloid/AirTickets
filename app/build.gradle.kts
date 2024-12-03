@@ -1,22 +1,21 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.airtickets.android.application)
 }
 
 android {
     namespace = "io.captaingaga.airtickets.effective.mobile"
-    compileSdk = 34
 
     defaultConfig {
         applicationId = "io.captaingaga.airtickets.effective.mobile"
-        minSdk = 28
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -26,16 +25,13 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
+    libs.apply {
+        implementation(platform(koin.bom))
+        implementation(koin.android)
+    }
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
