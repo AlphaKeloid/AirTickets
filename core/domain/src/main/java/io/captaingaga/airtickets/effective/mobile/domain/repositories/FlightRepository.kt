@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface FlightRepository {
 
-    suspend fun fetchOffers(): Flow<List<TicketOffer>>
+    suspend fun fetchOffers(): Flow<List<Offer>>
 
-    suspend fun fetchTicketOffers(): Flow<List<Offer>>
+    suspend fun fetchTicketOffers(): Flow<List<TicketOffer>>
 
     suspend fun fetchTickets(): Flow<List<Ticket>>
 }

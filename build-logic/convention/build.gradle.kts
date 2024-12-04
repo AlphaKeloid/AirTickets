@@ -41,6 +41,11 @@ gradlePlugin {
             id = "airtickets.kotlin.jvm.library"
             implementationClass = "KotlinJvmLibraryConventionPlugin"
         }
+
+        register("koinAndroidLibrary") {
+            id = "airtickets.koin.android.library"
+            implementationClass = "KoinAndroidLibraryConventionPlugin"
+        }
     }
 }
 

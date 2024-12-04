@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 class FetchOffersUseCase(
     private val repository: FlightRepository
 ) {
-    suspend operator fun invoke(): Flow<List<Offer>> = repository.fetchTicketOffers()
+    suspend operator fun invoke(): Flow<List<Offer>> = repository.fetchOffers()
 }

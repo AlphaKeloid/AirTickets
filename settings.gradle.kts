@@ -24,3 +24,4 @@ rootProject.name = "Air Tickets"
 include(":app")
 include(":core:domain")
 include(":core:common")
+include(":core:network")
