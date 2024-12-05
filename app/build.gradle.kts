@@ -32,6 +32,8 @@ dependencies {
         implementation(platform(koin.bom))
         implementation(koin.core)
         implementation(koin.android)
+        implementation(androidx.navigation.fragment)
+        implementation(androidx.navigation.ui)
     }
 
     projects.apply {
