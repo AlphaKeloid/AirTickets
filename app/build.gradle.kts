@@ -30,7 +30,12 @@ android {
 dependencies {
     libs.apply {
         implementation(platform(koin.bom))
+        implementation(koin.core)
         implementation(koin.android)
+    }
+
+    projects.apply {
+        api(core.data)
     }
 
     implementation(libs.androidx.core.ktx)

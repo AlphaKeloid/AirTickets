@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     `kotlin-dsl`
 }
@@ -35,6 +33,16 @@ gradlePlugin {
         register("androidLibrary") {
             id = "airtickets.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+
+        register("kotlinJvmLibrary") {
+            id = "airtickets.kotlin.jvm.library"
+            implementationClass = "KotlinJvmLibraryConventionPlugin"
+        }
+
+        register("koinAndroidLibrary") {
+            id = "airtickets.koin.android.library"
+            implementationClass = "KoinAndroidLibraryConventionPlugin"
         }
     }
 }

@@ -10,6 +10,11 @@ material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
 koin = "4.0.0"
+jetbrainsKotlinJvm = "1.9.24"
+coroutines = "1.9.0"
+retrofit = "2.11.0"
+serialization = "1.7.3"
+datetime = "0.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,17 +28,36 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 
 # Koin
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
 koin-android = { group = "io.insert-koin", name = "koin-android" }
+
+# Network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-kotlinx-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 # Plugins defined by this project
 airtickets-android-application = { id = "airtickets.android.application", version = "unspecified" }
 airtickets-android-library = { id = "airtickets.android.library", version = "unspecified" }
+airtickets-kotlin-jvm-library = { id = "airtickets.kotlin.jvm.library", version = "unspecified" }
+airtickets-koin-android-library = { id = "airtickets.koin.android.library", version = "unspecified" }
 
+[bundles]
+network = [
+    "retrofit",
+    "retrofit-converter-kotlinx-serialization",
+    "kotlinx-serialization-json"
+]
