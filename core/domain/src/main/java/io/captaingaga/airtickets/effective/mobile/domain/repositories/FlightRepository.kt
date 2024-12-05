@@ -1,15 +1,15 @@
 package io.captaingaga.airtickets.effective.mobile.domain.repositories
 
-import io.captaingaga.airtickets.effective.mobile.domain.models.Offer
-import io.captaingaga.airtickets.effective.mobile.domain.models.Ticket
-import io.captaingaga.airtickets.effective.mobile.domain.models.TicketOffer
+import io.captaingaga.airtickets.effective.mobile.domain.models.DomainOffer
+import io.captaingaga.airtickets.effective.mobile.domain.models.DomainTicket
+import io.captaingaga.airtickets.effective.mobile.domain.models.DomainOfferTicket
 import kotlinx.coroutines.flow.Flow
 
 interface FlightRepository {
 
-    suspend fun fetchOffers(): Flow<List<Offer>>
+    suspend fun fetchOffers(): Flow<List<DomainOffer>>
 
-    suspend fun fetchTicketOffers(): Flow<List<TicketOffer>>
+    suspend fun fetchOffersTickets(): Flow<List<DomainOfferTicket>>
 
-    suspend fun fetchTickets(): Flow<List<Ticket>>
+    suspend fun fetchTickets(): Flow<List<DomainTicket>>
 }

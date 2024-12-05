@@ -1,5 +1,5 @@
 package io.captaingaga.airtickets.effective.mobile.domain.models
 
-data class Price(
+data class DomainPrice(
     val value: Int
 )

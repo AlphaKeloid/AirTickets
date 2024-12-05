@@ -20,8 +20,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Air Tickets"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "AirTickets"
 include(":app")
 include(":core:domain")
 include(":core:common")
 include(":core:network")
+include(":core:data")

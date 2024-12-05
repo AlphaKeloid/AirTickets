@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TicketsOffers(
     @SerialName("tickets_offers")
-    val ticketsOffers: List<TicketOfferDto>
+    val ticketsOffers: List<OfferTicketDto>
 )

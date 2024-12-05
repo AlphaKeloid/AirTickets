@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 data class LuggageDto(
     @SerialName("has_luggage")
     val hasLuggage: Boolean,
-    val price: PriceDto
+    val price: PriceDto? = null
 )

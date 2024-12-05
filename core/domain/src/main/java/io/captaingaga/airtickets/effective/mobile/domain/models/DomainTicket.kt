@@ -1,17 +1,17 @@
 package io.captaingaga.airtickets.effective.mobile.domain.models
 
-data class Ticket(
+data class DomainTicket(
     val id: Int,
     val badge: String,
-    val price: Price,
+    val price: DomainPrice,
     val providerName: String,
     val company: String,
-    val departure: FlightPoint,
-    val arrival: FlightPoint,
+    val departure: DomainFlightPoint,
+    val arrival: DomainFlightPoint,
     val hasTransfer: Boolean,
     val hasVisaTransfer: Boolean,
-    val luggage: Luggage,
-    val handLuggage: HandLuggage,
+    val luggage: DomainLuggage,
+    val handLuggage: DomainHandLuggage,
     val isReturnable: Boolean,
     val isExchangeable: Boolean
 )

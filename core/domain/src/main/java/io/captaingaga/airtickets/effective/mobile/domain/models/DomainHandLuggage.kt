@@ -1,6 +1,6 @@
 package io.captaingaga.airtickets.effective.mobile.domain.models
 
-data class HandLuggage(
+data class DomainHandLuggage(
     val hasHandLuggage: Boolean,
     val size: String
 )
