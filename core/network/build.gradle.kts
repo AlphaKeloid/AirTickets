@@ -13,7 +13,7 @@ android {
 
 dependencies {
     libs.apply {
-        implementation(bundles.network)
+        api(bundles.network)
     }
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -12,7 +12,6 @@ android {
 
 dependencies {
     projects.apply {
-        api(core.common)
         api(core.domain)
         api(core.network)
     }
