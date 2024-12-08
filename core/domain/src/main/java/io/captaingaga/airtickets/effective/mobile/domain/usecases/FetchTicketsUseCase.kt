@@ -7,6 +7,5 @@ import kotlinx.coroutines.flow.Flow
 class FetchTicketsUseCase(
     private val repository: FlightRepository
 ) {
-
     suspend operator fun invoke(): Flow<List<DomainTicket>> = repository.fetchTickets()
 }

@@ -9,9 +9,7 @@ import io.captaingaga.airtickets.effective.mobile.network.networkModule
 import org.koin.dsl.module
 
 val repositoriesModule = module {
-    includes(networkModule)
     single<FlightRepository> { FlightRepositoryImpl(get()) }
-    includes(useCasesModule)
 }
 
 val useCasesModule = module {

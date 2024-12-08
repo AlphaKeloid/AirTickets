@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/destination_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/space_small"
+        android:contentDescription="@string/destination_icon"
+        android:scaleType="centerCrop"
+        android:src="@drawable/die_antwoord"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/RoundedShapeAppearance.Small" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/icon_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="destination_icon" />
+
+    <TextView
+        android:id="@+id/destination_title"
+        android:layout_width="0dp"
+        android:text="@string/destination_title_text_stub"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Title3"
+        android:layout_marginHorizontal="@dimen/space_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icon_barrier"
+        app:layout_constraintTop_toTopOf="@+id/destination_icon" />
+
+    <TextView
+        android:id="@+id/sut_title"
+        android:layout_width="0dp"
+        android:text="@string/sub_title_text_stub"
+        android:textColor="@color/grey_5"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Text2"
+        android:layout_marginHorizontal="@dimen/space_small"
+        app:layout_constraintBottom_toBottomOf="@+id/destination_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icon_barrier" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

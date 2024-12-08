@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:breakStrategy="high_quality"
+            android:gravity="center"
+            android:lines="2"
+            android:text="@string/header_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/header_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_extra_large"
+            app:layout_constraintTop_toBottomOf="@+id/header_title" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/from_container"
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_4"
+            app:cardBackgroundColor="@color/grey_3"
+            app:cardCornerRadius="@dimen/space_medium"
+            app:cardMaxElevation="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/header_spacer">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:padding="@dimen/space_medium"
+                app:cardBackgroundColor="@color/grey_4"
+                app:cardCornerRadius="@dimen/space_medium"
+                app:cardElevation="@dimen/space_medium"
+                app:cardMaxElevation="@dimen/space_large">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/space_medium">
+
+                    <ImageView
+                        android:id="@+id/search_icon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:contentDescription="@string/icon_search"
+                        android:src="@drawable/search_24px"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/grey_7" />
+
+                    <TextView
+                        android:id="@+id/textFrom"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/space_small"
+                        android:text="@string/text_from_stub"
+                        android:textAppearance="@style/TextAppearance.ButtonText"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+                        app:layout_constraintEnd_toEndOf="@+id/materialDivider"
+                        app:layout_constraintStart_toStartOf="@+id/materialDivider" />
+
+                    <TextView
+                        android:id="@+id/textTo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/space_small"
+                        android:text="@string/text_to_stub"
+                        android:textAppearance="@style/TextAppearance.ButtonText"
+                        android:textColor="@color/grey_6"
+                        app:layout_constraintEnd_toEndOf="@+id/materialDivider"
+                        app:layout_constraintStart_toStartOf="@+id/materialDivider"
+                        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/materialDivider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/space_medium"
+                        app:dividerColor="@color/grey_6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/search_icon"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:id="@+id/card_spacer"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_large_medium"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/from_container" />
+
+        <TextView
+            android:id="@+id/title_music_offers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_offers_title"
+            android:textAppearance="@style/TextAppearance.Title1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/card_spacer" />
+
+        <Space
+            android:id="@+id/title_spacer"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_large_medium"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/title_music_offers" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/offers_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/title_spacer"
+            tools:listitem="@layout/item_offer" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/space_medium" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/space_medium" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
