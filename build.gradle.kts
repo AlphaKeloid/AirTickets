@@ -6,3 +6,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.kotlinx.serialization) apply false
 }
+
+buildscript {
+    dependencies {
+        classpath(libs.androidx.navigation.safe.args)
+    }
+}

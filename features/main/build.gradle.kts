@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.airtickets.koin.android.library)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.airtickets.android.navigation.library)
 }
 
 android {
@@ -28,8 +28,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

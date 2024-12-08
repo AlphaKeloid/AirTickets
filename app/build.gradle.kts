@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.airtickets.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.airtickets.android.navigation.library)
 }
 
 android {
@@ -34,8 +34,6 @@ dependencies {
         implementation(koin.core)
         implementation(koin.android)
         implementation(koin.viewmodel)
-        implementation(androidx.navigation.fragment)
-        implementation(androidx.navigation.ui)
     }
 
     projects.apply {

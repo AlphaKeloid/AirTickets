@@ -44,6 +44,11 @@ gradlePlugin {
             id = "airtickets.koin.android.library"
             implementationClass = "KoinAndroidLibraryConventionPlugin"
         }
+
+        register("androidNavigationLibrary") {
+            id = "airtickets.android.navigation.library"
+            implementationClass = "AndroidNavigationLibraryConventionPlugin"
+        }
     }
 }
 

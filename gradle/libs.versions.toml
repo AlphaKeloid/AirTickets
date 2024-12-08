@@ -30,8 +30,10 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "nav" }
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "nav" }
+androidx-navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "nav" }
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -68,6 +70,7 @@ airtickets-android-application = { id = "airtickets.android.application", versio
 airtickets-android-library = { id = "airtickets.android.library", version = "unspecified" }
 airtickets-kotlin-jvm-library = { id = "airtickets.kotlin.jvm.library", version = "unspecified" }
 airtickets-koin-android-library = { id = "airtickets.koin.android.library", version = "unspecified" }
+airtickets-android-navigation-library = { id = "airtickets.android.navigation.library", version = "unspecified" }
 
 [bundles]
 network = [

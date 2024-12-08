@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-    tools:context=".SearchFragment">
+    tools:context=".SearchBottomSheetFragment">
 
     <ScrollView
         android:layout_width="match_parent"

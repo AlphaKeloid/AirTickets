@@ -21,18 +21,18 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import io.captaingaga.airtickets.effective.mobile.common.R
 import io.captaingaga.airtickets.effective.mobile.main.components.UIRecommendedItem
 import io.captaingaga.airtickets.effective.mobile.main.components.stub.recommendedStubList
-import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentSearchBinding
+import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentSearchBottomSheetBinding
 import io.captaingaga.airtickets.effective.mobile.main.ui.GenericDiffCallback
 import io.captaingaga.airtickets.effective.mobile.main.ui.recommendedAdapter
 
 private const val ARG_FOCUS_FIELD = "focus_field"
 
-class SearchFragment : BottomSheetDialogFragment() {
+class SearchBottomSheetFragment : BottomSheetDialogFragment() {
 
     private var focusField: Int? = null
     private lateinit var bottomSheetDialog: BottomSheetDialog
 
-    private var _binding: FragmentSearchBinding? = null
+    private var _binding: FragmentSearchBottomSheetBinding? = null
     private val binding get() = checkNotNull(_binding)
     private val recommendationsAdapter by lazy {
         AsyncListDifferDelegationAdapter(
@@ -50,7 +50,7 @@ class SearchFragment : BottomSheetDialogFragment() {
 
         fun forToField() = newInstance(FocusField.TO)
 
-        private fun newInstance(focusField: Int) = SearchFragment().apply {
+        private fun newInstance(focusField: Int) = SearchBottomSheetFragment().apply {
             arguments = Bundle().apply {
                 putInt(ARG_FOCUS_FIELD, focusField)
             }
@@ -84,7 +84,7 @@ class SearchFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 

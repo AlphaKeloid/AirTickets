@@ -44,14 +44,14 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textFrom.setOnClickListener {
-            SearchFragment
+            SearchBottomSheetFragment
                 .forFromField()
-                .show(parentFragmentManager, SearchFragment.TAG)
+                .show(parentFragmentManager, SearchBottomSheetFragment.TAG)
         }
         binding.textTo.setOnClickListener {
-            SearchFragment
+            SearchBottomSheetFragment
                 .forToField()
-                .show(parentFragmentManager, SearchFragment.TAG)
+                .show(parentFragmentManager, SearchBottomSheetFragment.TAG)
         }
 
         binding.offersRecycler.apply {
