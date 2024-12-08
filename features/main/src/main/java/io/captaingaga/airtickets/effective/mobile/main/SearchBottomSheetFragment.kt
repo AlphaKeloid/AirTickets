@@ -10,6 +10,7 @@ import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@ import io.captaingaga.airtickets.effective.mobile.common.R
 import io.captaingaga.airtickets.effective.mobile.main.components.UIRecommendedItem
 import io.captaingaga.airtickets.effective.mobile.main.components.stub.recommendedStubList
 import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentSearchBottomSheetBinding
-import io.captaingaga.airtickets.effective.mobile.main.ui.GenericDiffCallback
+import io.captaingaga.airtickets.effective.mobile.common.GenericDiffCallback
 import io.captaingaga.airtickets.effective.mobile.main.ui.recommendedAdapter
 
 private const val ARG_FOCUS_FIELD = "focus_field"
@@ -39,27 +40,6 @@ class SearchBottomSheetFragment : BottomSheetDialogFragment() {
             AsyncDifferConfig.Builder(GenericDiffCallback<UIRecommendedItem>()).build(),
             recommendedAdapter(::recommendationsItemClick)
         )
-    }
-
-
-    companion object {
-        const val TAG = "SearchFragment"
-
-        @JvmStatic
-        fun forFromField() = newInstance(FocusField.FROM)
-
-        fun forToField() = newInstance(FocusField.TO)
-
-        private fun newInstance(focusField: Int) = SearchBottomSheetFragment().apply {
-            arguments = Bundle().apply {
-                putInt(ARG_FOCUS_FIELD, focusField)
-            }
-        }
-
-        object FocusField {
-            const val FROM = 0
-            const val TO = 1
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,6 +79,8 @@ class SearchBottomSheetFragment : BottomSheetDialogFragment() {
         val layoutParams = parentLayout!!.layoutParams
         layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
         parentLayout.layoutParams = layoutParams
+        val imm = requireContext()
+            .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         binding.apply {
             recommendationsRecycler.apply {
@@ -118,7 +100,16 @@ class SearchBottomSheetFragment : BottomSheetDialogFragment() {
                 )
             }
             textTo.editText
-                ?.setOnEditorActionListener { _, actionId, _ -> imeActionDone(actionId) }
+                ?.setOnEditorActionListener { view, actionId, _ ->
+                    imeActionDone(
+                        action = actionId,
+                        from = "Москва",
+                        to = "Стамбул"
+                    ) {
+                        imm.hideSoftInputFromWindow(view.windowToken, 0)
+                    }
+
+                }
             anyWhere.setOnClickListener {
                 textTo.editText?.setText(recommendedStubList.random().destinationTitle)
             }
@@ -132,8 +123,6 @@ class SearchBottomSheetFragment : BottomSheetDialogFragment() {
 
         recommendationsAdapter.items = recommendedStubList
 
-        val imm = requireContext()
-            .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         when (focusField) {
             FocusField.FROM -> binding.textFrom.editText?.apply {
@@ -152,12 +141,43 @@ class SearchBottomSheetFragment : BottomSheetDialogFragment() {
         binding.textTo.editText?.setText(item.destinationTitle)
     }
 
-    private fun imeActionDone(action: Int): Boolean {
+    private fun imeActionDone(
+        action: Int,
+        from: String,
+        to: String,
+        operation: () -> Unit
+    ): Boolean {
         if (action == EditorInfo.IME_ACTION_DONE) {
+            operation()
             bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_HIDDEN
-            // TODO: navigate to next screen
+            val toSearch = MainFragmentDirections
+                .actionNavigationMainToSearchFeatureNavigationGraph(
+                    from = from,
+                    to = to
+                )
+            findNavController().navigate(toSearch)
             return true
         }
         return false
+    }
+
+    companion object {
+        const val TAG = "SearchBottomSheetFragment"
+
+        @JvmStatic
+        fun forFromField() = newInstance(FocusField.FROM)
+
+        fun forToField() = newInstance(FocusField.TO)
+
+        private fun newInstance(focusField: Int) = SearchBottomSheetFragment().apply {
+            arguments = Bundle().apply {
+                putInt(ARG_FOCUS_FIELD, focusField)
+            }
+        }
+
+        object FocusField {
+            const val FROM = 0
+            const val TO = 1
+        }
     }
 }

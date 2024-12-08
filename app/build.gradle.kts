@@ -40,6 +40,7 @@ dependencies {
         api(core.data)
         api(core.common)
         api(features.main)
+        api(features.search)
     }
 
     implementation(libs.androidx.core.ktx)

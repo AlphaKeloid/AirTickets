@@ -9,5 +9,20 @@
         android:id="@+id/navigation_main"
         android:name="io.captaingaga.airtickets.effective.mobile.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_navigation_main_to_search_feature_navigation_graph"
+            app:destination="@id/search_feature_navigation_graph">
+            <argument
+                android:name="from"
+                app:argType="string" />
+            <argument
+                android:name="to"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+
+    <include app:graph="@navigation/search_feature_navigation_graph" />
 </navigation>

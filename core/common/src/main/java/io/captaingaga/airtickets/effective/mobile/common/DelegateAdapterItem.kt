@@ -1,4 +1,4 @@
-package io.captaingaga.airtickets.effective.mobile.main.components
+package io.captaingaga.airtickets.effective.mobile.common
 
 interface DelegateAdapterItem {
     fun id(): Any

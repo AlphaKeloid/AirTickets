@@ -13,7 +13,8 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import io.captaingaga.airtickets.effective.mobile.common.AppResult
 import io.captaingaga.airtickets.effective.mobile.main.components.UiOfferItem
 import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentMainBinding
-import io.captaingaga.airtickets.effective.mobile.main.ui.GenericDiffCallback
+import io.captaingaga.airtickets.effective.mobile.common.GenericDiffCallback
+import io.captaingaga.airtickets.effective.mobile.main.components.toUiItems
 import io.captaingaga.airtickets.effective.mobile.main.ui.OfferItemDecorator
 import io.captaingaga.airtickets.effective.mobile.main.ui.offerAdapter
 import io.captaingaga.airtickets.effective.mobile.main.viewmodels.OffersViewModel
@@ -67,7 +68,7 @@ class MainFragment : Fragment() {
                     is AppResult.Loading -> {} // TODO("shaw ui loading")
 
                     is AppResult.Success -> {
-                        offersAdapter.items = result.data
+                        offersAdapter.items = result.data.toUiItems()
                     }
 
                     is AppResult.Failure -> {

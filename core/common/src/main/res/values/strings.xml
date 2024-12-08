@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_from_stub">Москва</string>
+    <string name="text_from_placeholder_stub">Откуда - Москва</string>
+    <string name="text_to_stub">Куда - Турция</string>
+</resources>

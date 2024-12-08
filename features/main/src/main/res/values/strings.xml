@@ -1,9 +1,6 @@
 <resources>
     <string name="icon_search">icon_search</string>
     <string name="header_text">Поиск дешевых\nавиабилетов</string>
-    <string name="text_to_stub">Куда - Турция</string>
-    <string name="text_from_stub">Москва</string>
-    <string name="text_from_placeholder_stub">Откуда - Москва</string>
     <string name="text_offers_title">Музыкально отлететь</string>
     <string name="complex_route_text_stub">Сложный\nмаршрут</string>
     <string name="weekend_text_stab">Выходные</string>
@@ -12,6 +9,7 @@
     <string name="destination_icon">destination icon</string>
     <string name="destination_title_text_stub">Стамбул</string>
     <string name="sub_title_text_stub">Популярное направление</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="price_text_stub">от 20 034 р</string>
+    <string name="city_text_stub">Санкт- Петербург</string>
+    <string name="artist_name_text_stub">Die Antwoord</string>
 </resources>

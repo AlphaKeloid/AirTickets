@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Base.Theme.AirTickets" parent="Theme.Material3.DayNight.NoActionBar">
 
         <item name="colorPrimary">@color/blue</item>
@@ -16,23 +17,15 @@
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
     </style>
 
-    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
-<!--        <item name="hintTextColor">?attr/colorOnSurface</item>-->
+    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Title3</item>
+        <item name="shapeAppearance">@style/RoundedShapeAppearance.Medium</item>
+        <item name="chipBackgroundColor">@color/grey_3</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="chipIconTint">@color/grey_7</item>
     </style>
 
-    <style name="ThemeOverlay.App.TextInputLayout" parent="">
-<!--        <item name="colorPrimary">@color/shrine_pink_100</item>-->
-        <item name="colorOnSurface">@color/grey_7</item>
-<!--        <item name="drawableTint">@color/grey_7</item>-->
-        <item name="hintEnabled">false</item>
-        <item name="boxStrokeWidth">0dp</item>
-        <item name="boxStrokeWidthFocused">0dp</item>
-<!--        <item name="drawableTint">@color/grey_7</item>-->
-<!--        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>-->
-<!--        <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>-->
-<!--        <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.*</item>-->
-    </style>
 
     <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/ModalBottomSheetDialog</item>
@@ -40,17 +33,12 @@
 
     <style name="ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
         <item name="backgroundTint">@color/grey_3</item>
-<!--        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>-->
+        <!--        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>-->
     </style>
 
-<!--    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">-->
-<!--        <item name="cornerFamily">rounded</item>-->
-<!--        <item name="cornerSize">24dp</item>-->
-<!--    </style>-->
-
     <style name="Widget.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">#4CB24E</item>
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAppearance">@style/TextAppearance.ButtonText1</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
@@ -119,6 +107,13 @@
         <item name="android:textStyle">normal</item>
         <item name="android:fontWeight">600</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.ButtonText1" parent="">
+        <item name="android:fontFamily">@font/sf_pro_display</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textSize">21sp</item>
     </style>
 
     <style name="TextAppearance.ButtonText" parent="">

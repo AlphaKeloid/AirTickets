@@ -1,5 +1,7 @@
 package io.captaingaga.airtickets.effective.mobile.main.components
 
+import io.captaingaga.airtickets.effective.mobile.common.DelegateAdapterItem
+
 data class UiOfferItem(
     val id: Int,
     val artistName: String,

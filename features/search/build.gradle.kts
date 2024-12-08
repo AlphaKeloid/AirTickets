@@ -4,27 +4,21 @@ plugins {
 }
 
 android {
-    namespace = "io.captaingaga.airtickets.effective.mobile.main"
+    namespace = "io.captaingaga.airtickets.effective.mobile.search"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.recyclerview)
     projects.apply {
         api(core.common)
         api(core.data)
-        api(features.search)
     }
     libs.apply {
         api(bundles.adapter)
-        api(glide)
+        api(kotlinx.datetime)
     }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
