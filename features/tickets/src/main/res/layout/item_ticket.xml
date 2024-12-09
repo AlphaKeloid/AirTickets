@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,15 +11,15 @@
         android:layout_height="wrap_content"
         android:background="@drawable/badge_shape"
         android:includeFontPadding="false"
-        android:paddingHorizontal="@dimen/space_small"
+        android:paddingHorizontal="@dimen/space_8"
         android:paddingVertical="2dp"
-        android:text="@string/badge_stub_text"
         android:textAppearance="@style/TextAppearance.Title4Italic"
         android:textColor="@color/white"
         android:translationZ="5dp"
         app:layout_constraintBottom_toTopOf="@+id/ticket_container"
         app:layout_constraintStart_toStartOf="@+id/ticket_container"
-        app:layout_constraintTop_toTopOf="@+id/ticket_container" />
+        app:layout_constraintTop_toTopOf="@+id/ticket_container"
+        tools:text="Самый удобный" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ticket_container"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/grey_1"
-        app:cardCornerRadius="@dimen/space_medium"
+        app:cardCornerRadius="@dimen/space_16"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,22 +38,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/space_medium">
+            android:layout_margin="@dimen/space_16">
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ticket_ptice_text_stub"
                 android:textAppearance="@style/TextAppearance.Title1"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="6 990 ₽" />
 
             <Space
                 android:id="@+id/price_spacer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_medium"
+                android:layout_height="@dimen/space_16"
                 app:layout_constraintTop_toBottomOf="@+id/price" />
 
             <ImageView
@@ -69,7 +70,7 @@
                 android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/space_small"
+                android:layout_marginHorizontal="@dimen/space_8"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@+id/company_icon"
                 app:layout_constraintStart_toEndOf="@+id/company_icon"
@@ -85,23 +86,23 @@
                         android:id="@+id/departure_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/departure_time_text_stub"
                         android:textAppearance="@style/TextAppearance.Title4Italic"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        tools:text="03:15" />
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="10dp"
                         android:layout_height="1dp"
-                        android:layout_marginHorizontal="@dimen/space_small" />
+                        android:layout_marginHorizontal="@dimen/space_8" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/departure_airport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/departure_airport_text_stub"
                     android:textAppearance="@style/TextAppearance.Title4Italic"
-                    android:textColor="@color/grey_6" />
+                    android:textColor="@color/grey_6"
+                    tools:text="VKO" />
             </LinearLayout>
 
             <LinearLayout
@@ -121,18 +122,18 @@
                         android:id="@+id/arrival_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/departure_time_text_stub"
                         android:textAppearance="@style/TextAppearance.Title4Italic"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        tools:text="03:15" />
 
                     <TextView
                         android:id="@+id/flight_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space_medium"
-                        android:text="@string/flight_time_text_stub"
+                        android:layout_marginStart="@dimen/space_16"
                         android:textAppearance="@style/TextAppearance.Title4Italic"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        tools:text="3.5ч в пути / Без пересадок" />
 
                 </LinearLayout>
 
@@ -140,9 +141,9 @@
                     android:id="@+id/arrival_airport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/departure_airport_text_stub"
                     android:textAppearance="@style/TextAppearance.Title4Italic"
-                    android:textColor="@color/grey_6" />
+                    android:textColor="@color/grey_6"
+                    tools:text="VKO" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

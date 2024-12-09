@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/space_small">
+    android:paddingVertical="@dimen/space_8">
 
     <ImageView
         android:id="@+id/company_icon"
@@ -17,7 +18,7 @@
 
     <Space
         android:id="@+id/icon_spacer"
-        android:layout_width="@dimen/space_small"
+        android:layout_width="@dimen/space_8"
         android:layout_height="match_parent"
         app:layout_constraintStart_toEndOf="@+id/company_icon" />
 
@@ -25,34 +26,33 @@
         android:id="@+id/company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/company_text_stub"
         android:textAppearance="@style/TextAppearance.Title4"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/icon_spacer"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Уральские авиалинии" />
 
     <TextView
         android:id="@+id/time_range"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/time_range_text_stub"
+        android:singleLine="true"
         android:textAppearance="@style/TextAppearance.Text2"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/icon_spacer"
-        app:layout_constraintTop_toBottomOf="@+id/company" />
+        app:layout_constraintTop_toBottomOf="@+id/company"
+        tools:text="07:00 09:10 10:00 12:00 12:00 12:00 13:00 12:00 " />
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:text="@string/price_text_stub"
         android:textAppearance="@style/TextAppearance.Title4"
         android:textColor="@color/blue"
         app:drawableEndCompat="@drawable/keyboard_arrow_right_24px"
         app:drawableTint="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2 390 ₽" />
 </androidx.constraintlayout.widget.ConstraintLayout>

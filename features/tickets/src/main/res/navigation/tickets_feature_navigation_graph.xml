@@ -11,7 +11,7 @@
         android:label="fragment_tickets"
         tools:layout="@layout/fragment_tickets">
         <argument
-            android:name="fromTo"
+            android:name="route"
             app:argType="string" />
         <argument
             android:name="date"

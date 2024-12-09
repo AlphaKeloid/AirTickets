@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -20,8 +21,8 @@
         android:id="@+id/artist_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/space_small"
-        android:text="@string/artist_name_text_stub"
+        android:layout_marginVertical="@dimen/space_8"
+        tools:text="Die Antwoord"
         android:textAppearance="@style/TextAppearance.Title3"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +32,8 @@
         android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/space_small"
-        android:text="@string/city_text_stub"
+        android:layout_marginVertical="@dimen/space_8"
+        tools:text="Санкт-Петербург"
         android:textAppearance="@style/TextAppearance.Text2"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/price_text_stub"
+        tools:text="от 20 034 р"
         android:textAppearance="@style/TextAppearance.Text2"
         android:textColor="@color/white"
         app:drawableStartCompat="@drawable/travel_24px"

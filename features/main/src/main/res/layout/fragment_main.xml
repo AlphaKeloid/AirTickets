@@ -27,7 +27,7 @@
         <Space
             android:id="@+id/header_spacer"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_extra_large"
+            android:layout_height="@dimen/space_48"
             app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
         <com.google.android.material.card.MaterialCardView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:background="@color/grey_4"
             app:cardBackgroundColor="@color/grey_3"
-            app:cardCornerRadius="@dimen/space_medium"
+            app:cardCornerRadius="@dimen/space_16"
             app:cardMaxElevation="0dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline_end"
             app:layout_constraintStart_toStartOf="@+id/guideline_start"
@@ -47,17 +47,17 @@
                 style="?attr/materialCardViewFilledStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_medium"
-                android:padding="@dimen/space_medium"
+                android:layout_margin="@dimen/space_16"
+                android:padding="@dimen/space_16"
                 app:cardBackgroundColor="@color/grey_4"
-                app:cardCornerRadius="@dimen/space_medium"
-                app:cardElevation="@dimen/space_medium"
-                app:cardMaxElevation="@dimen/space_large">
+                app:cardCornerRadius="@dimen/space_16"
+                app:cardElevation="@dimen/space_16"
+                app:cardMaxElevation="@dimen/space_24">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/space_medium">
+                    android:padding="@dimen/space_16">
 
                     <ImageView
                         android:id="@+id/search_icon"
@@ -70,14 +70,22 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/grey_7" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textFrom"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/space_small"
-                        android:text="@string/text_from_stub"
+                        android:autofillHints="false"
+                        android:background="@null"
+                        android:hint="@string/text_from_placeholder"
+                        android:imeOptions="flagNoExtractUi|actionDone"
+                        android:inputType="textCapSentences|textPhonetic"
+                        android:paddingVertical="@dimen/space_8"
                         android:textAppearance="@style/TextAppearance.ButtonText"
                         android:textColor="@color/white"
+                        android:textColorHighlight="@color/blue"
+                        android:textColorHint="@color/grey_6"
+                        android:textCursorDrawable="@drawable/cursor"
+                        android:textSelectHandle="@drawable/text_select"
                         app:layout_constraintBottom_toTopOf="@+id/materialDivider"
                         app:layout_constraintEnd_toEndOf="@+id/materialDivider"
                         app:layout_constraintStart_toStartOf="@+id/materialDivider" />
@@ -86,7 +94,7 @@
                         android:id="@+id/textTo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/space_small"
+                        android:paddingVertical="@dimen/space_8"
                         android:text="@string/text_to_stub"
                         android:textAppearance="@style/TextAppearance.ButtonText"
                         android:textColor="@color/grey_6"
@@ -99,7 +107,7 @@
                         android:id="@+id/materialDivider"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:layout_marginStart="@dimen/space_medium"
+                        android:layout_marginStart="@dimen/space_16"
                         app:dividerColor="@color/grey_6"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +123,7 @@
         <Space
             android:id="@+id/card_spacer"
             android:layout_width="0dp"
-            android:layout_height="@dimen/space_large_medium"
+            android:layout_height="@dimen/space_32"
             app:layout_constraintEnd_toStartOf="@+id/guideline_end"
             app:layout_constraintStart_toStartOf="@+id/guideline_start"
             app:layout_constraintTop_toBottomOf="@+id/from_container" />
@@ -134,7 +142,7 @@
         <Space
             android:id="@+id/title_spacer"
             android:layout_width="0dp"
-            android:layout_height="@dimen/space_large_medium"
+            android:layout_height="@dimen/space_32"
             app:layout_constraintEnd_toStartOf="@+id/guideline_end"
             app:layout_constraintStart_toStartOf="@+id/guideline_start"
             app:layout_constraintTop_toBottomOf="@+id/title_music_offers" />
@@ -153,15 +161,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/space_medium" />
+            app:layout_constraintGuide_begin="@dimen/space_16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/space_medium" />
-
+            app:layout_constraintGuide_end="@dimen/space_16" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

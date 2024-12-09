@@ -11,17 +11,23 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import io.captaingaga.airtickets.effective.mobile.common.AppResult
-import io.captaingaga.airtickets.effective.mobile.main.components.UiOfferItem
-import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentMainBinding
 import io.captaingaga.airtickets.effective.mobile.common.GenericDiffCallback
+import io.captaingaga.airtickets.effective.mobile.main.components.UiOfferItem
 import io.captaingaga.airtickets.effective.mobile.main.components.toUiItems
+import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentMainBinding
+import io.captaingaga.airtickets.effective.mobile.main.ui.CyrillicInputValidation
 import io.captaingaga.airtickets.effective.mobile.main.ui.OfferItemDecorator
 import io.captaingaga.airtickets.effective.mobile.main.ui.offerAdapter
-import io.captaingaga.airtickets.effective.mobile.main.viewmodels.OffersViewModel
+import io.captaingaga.airtickets.effective.mobile.main.viewmodels.MainViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+private const val ARG_INPUT_FIELD_FROM ="input_field_from"
+
 class MainFragment : Fragment() {
+
+    private var inputFieldFrom: String? = null
+
     private var _binding: FragmentMainBinding? = null
     private val binding get() = checkNotNull(_binding)
     private val offersAdapter by lazy {
@@ -31,7 +37,14 @@ class MainFragment : Fragment() {
         )
     }
 
-    private val offersViewModel: OffersViewModel by viewModel<OffersViewModel>()
+    private val mainViewModel: MainViewModel by viewModel<MainViewModel>()
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        _binding?.let {
+            outState.putString(ARG_INPUT_FIELD_FROM, it.textFrom.text.toString())
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,27 +56,36 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.textFrom.setOnClickListener {
-            SearchBottomSheetFragment
-                .forFromField()
-                .show(parentFragmentManager, SearchBottomSheetFragment.TAG)
+        // TODO: save user input
+        lifecycleScope.launch {
+            mainViewModel.textFrom.collect {
+                inputFieldFrom = it
+            }
         }
-        binding.textTo.setOnClickListener {
-            SearchBottomSheetFragment
-                .forToField()
-                .show(parentFragmentManager, SearchBottomSheetFragment.TAG)
-        }
-
-        binding.offersRecycler.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = offersAdapter
-            addItemDecoration(OfferItemDecorator(requireContext()))
+        binding.apply {
+            textFrom.setText(inputFieldFrom)
+            textFrom.addTextChangedListener(
+                CyrillicInputValidation(
+                    context = requireContext(),
+                    editText = textFrom
+                ) {
+                    mainViewModel.updateTextFrom(it)
+                }
+            )
+            textTo.setOnClickListener {
+                OffersBottomSheetFragment.newInstance(inputFieldFrom.orEmpty())
+                    .show(parentFragmentManager, OffersBottomSheetFragment.TAG)
+            }
+            offersRecycler.apply {
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                adapter = offersAdapter
+                addItemDecoration(OfferItemDecorator(requireContext()))
+            }
         }
 
         lifecycleScope.launch {
-            offersViewModel.offer.collect { result ->
+            mainViewModel.offer.collect { result ->
                 when (result) {
                     is AppResult.Loading -> {} // TODO("shaw ui loading")
 
@@ -78,5 +100,9 @@ class MainFragment : Fragment() {
                 }
             }
         }
+    }
+    
+    companion object {
+        private const val TAG = "MainFragment"
     }
 }

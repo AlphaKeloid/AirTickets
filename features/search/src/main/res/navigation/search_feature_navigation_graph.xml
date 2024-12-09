@@ -20,7 +20,7 @@
             android:id="@+id/action_searchFragment_to_tickets_feature_navigation_graph"
             app:destination="@id/tickets_feature_navigation_graph" >
             <argument
-                android:name="fromTo"
+                android:name="route"
                 app:argType="string" />
             <argument
                 android:name="date"

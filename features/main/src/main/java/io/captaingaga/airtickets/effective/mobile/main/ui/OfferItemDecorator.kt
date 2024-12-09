@@ -19,17 +19,17 @@ class OfferItemDecorator(private val context: Context) : RecyclerView.ItemDecora
             if (parent.getChildAdapterPosition(view) == 0) {
                 MaterialDividerItemDecoration(context, LinearLayoutManager.VERTICAL)
                 left = context.resources
-                        .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_medium)
+                        .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_16)
                         .toInt()
             }
             if (parent.getChildAdapterPosition(view) == (state.itemCount - 1)) {
                 right = context.resources
-                    .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_medium)
+                    .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_16)
                     .toInt()
             }
 
             left = context.resources
-                    .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_large)
+                    .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_24)
                     .toInt()
         }
     }

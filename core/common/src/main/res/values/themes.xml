@@ -132,7 +132,7 @@
 
     <style name="RoundedShapeAppearance.Small" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/space_small</item>
+        <item name="cornerSize">@dimen/space_8</item>
     </style>
 
     <style name="RoundedShapeAppearance.Medium" parent="">

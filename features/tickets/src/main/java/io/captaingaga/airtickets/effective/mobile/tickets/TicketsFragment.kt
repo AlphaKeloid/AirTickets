@@ -1,7 +1,6 @@
 package io.captaingaga.airtickets.effective.mobile.tickets
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,15 +49,11 @@ class TicketsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG, "onViewCreated: ${args.date}")
-        Log.d(TAG, "onViewCreated: ${args.fromTo}")
-        Log.d(TAG, "onViewCreated: ${args.passengers}")
         val navController = findNavController()
         binding.apply {
             goBack.setOnClickListener { navController.popBackStack() }
-            route.text = args.fromTo
-            info.text =
-                StringBuilder()
+            route.text = args.route
+            info.text = StringBuilder()
                     .append(args.date).append(", ")
                     .append(args.passengers.toString())
                     .append(" пассажир").toString()
