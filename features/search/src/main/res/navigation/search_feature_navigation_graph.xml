@@ -16,5 +16,22 @@
         <argument
             android:name="to"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_tickets_feature_navigation_graph"
+            app:destination="@id/tickets_feature_navigation_graph" >
+            <argument
+                android:name="fromTo"
+                app:argType="string" />
+            <argument
+                android:name="date"
+                app:argType="string" />
+            <argument
+                android:name="passengers"
+                app:argType="integer" />
+        </action>
+
     </fragment>
+
+    <include app:graph="@navigation/tickets_feature_navigation_graph" />
+
 </navigation>

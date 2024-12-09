@@ -1,4 +1,4 @@
-package io.captaingaga.airtickets.effective.mobile.search.comppnents
+package io.captaingaga.airtickets.effective.mobile.data.utils
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -7,7 +7,7 @@ import kotlinx.datetime.toLocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-internal fun Long.toFormattedDate(): String {
+fun Long.toFormattedDate(): String {
     val localDate = Instant.fromEpochMilliseconds(this)
         .toLocalDateTime(TimeZone.currentSystemDefault())
         .date

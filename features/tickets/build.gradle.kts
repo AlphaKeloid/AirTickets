@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "io.captaingaga.airtickets.effective.mobile.search"
+    namespace = "io.captaingaga.airtickets.effective.mobile.tickets"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -15,7 +15,6 @@ dependencies {
     projects.apply {
         api(core.common)
         api(core.data)
-        api(features.tickets)
     }
     libs.apply {
         api(bundles.adapter)

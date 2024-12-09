@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/badge_shape"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/space_small"
+        android:paddingVertical="2dp"
+        android:text="@string/badge_stub_text"
+        android:textAppearance="@style/TextAppearance.Title4Italic"
+        android:textColor="@color/white"
+        android:translationZ="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/ticket_container"
+        app:layout_constraintStart_toStartOf="@+id/ticket_container"
+        app:layout_constraintTop_toTopOf="@+id/ticket_container" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ticket_container"
+        style="?attr/materialCardViewFilledStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/grey_1"
+        app:cardCornerRadius="@dimen/space_medium"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/space_medium">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticket_ptice_text_stub"
+                android:textAppearance="@style/TextAppearance.Title1"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Space
+                android:id="@+id/price_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_medium"
+                app:layout_constraintTop_toBottomOf="@+id/price" />
+
+            <ImageView
+                android:id="@+id/company_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/airline_logo"
+                android:src="@drawable/radio_button_unchecked_24px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_spacer"
+                app:tint="@color/red" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_small"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/company_icon"
+                app:layout_constraintStart_toEndOf="@+id/company_icon"
+                app:layout_constraintTop_toTopOf="@+id/company_icon">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/departure_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/departure_time_text_stub"
+                        android:textAppearance="@style/TextAppearance.Title4Italic"
+                        android:textColor="@color/white" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/space_small" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/departure_airport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/departure_airport_text_stub"
+                    android:textAppearance="@style/TextAppearance.Title4Italic"
+                    android:textColor="@color/grey_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/company_icon"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                app:layout_constraintTop_toTopOf="@+id/company_icon">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/arrival_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/departure_time_text_stub"
+                        android:textAppearance="@style/TextAppearance.Title4Italic"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/flight_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_medium"
+                        android:text="@string/flight_time_text_stub"
+                        android:textAppearance="@style/TextAppearance.Title4Italic"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/arrival_airport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/departure_airport_text_stub"
+                    android:textAppearance="@style/TextAppearance.Title4Italic"
+                    android:textColor="@color/grey_6" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

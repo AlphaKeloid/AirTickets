@@ -1,4 +1,4 @@
-package io.captaingaga.airtickets.effective.mobile.search
+package io.captaingaga.airtickets.effective.mobile.search.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

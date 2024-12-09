@@ -18,8 +18,7 @@ class OfferItemDecorator(private val context: Context) : RecyclerView.ItemDecora
         with(outRect) {
             if (parent.getChildAdapterPosition(view) == 0) {
                 MaterialDividerItemDecoration(context, LinearLayoutManager.VERTICAL)
-                left =
-                    context.resources
+                left = context.resources
                         .getDimension(io.captaingaga.airtickets.effective.mobile.common.R.dimen.space_medium)
                         .toInt()
             }

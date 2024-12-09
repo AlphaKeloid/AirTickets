@@ -20,10 +20,11 @@ import io.captaingaga.airtickets.effective.mobile.common.AppResult
 import io.captaingaga.airtickets.effective.mobile.common.GenericDiffCallback
 import io.captaingaga.airtickets.effective.mobile.common.R
 import io.captaingaga.airtickets.effective.mobile.search.comppnents.UITicketOfferItem
-import io.captaingaga.airtickets.effective.mobile.search.comppnents.toFormattedDate
+import io.captaingaga.airtickets.effective.mobile.data.utils.toFormattedDate
 import io.captaingaga.airtickets.effective.mobile.search.comppnents.toUiItems
 import io.captaingaga.airtickets.effective.mobile.search.databinding.FragmentSearchBinding
 import io.captaingaga.airtickets.effective.mobile.search.ui.offersTicketsAdapter
+import io.captaingaga.airtickets.effective.mobile.search.viewmodels.OffersTicketsViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -49,6 +50,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = SearchFragmentArgs.fromBundle(requireArguments())
+        Log.d(TAG, "onViewCreated: ${args.from}, ${args.to}")
         binging.apply {
             goBack.setOnClickListener { findNavController().popBackStack() }
             textFrom.editText?.setText(args.from)
@@ -69,7 +71,18 @@ class SearchFragment : Fragment() {
                     isLastItemDecorated = false
                 })
             }
-            showAllTickets.setOnClickListener { /* TODO: navigate next screen */ }
+            showAllTickets.setOnClickListener {
+                val from = args.from ?: "Неизвестно"
+                val to = args.to ?: "Неизвестно"
+                val toTickets = SearchFragmentDirections
+                    .actionSearchFragmentToTicketsFeatureNavigationGraph(
+                        fromTo = "$from - $to",
+                        date = "9 декабря",
+                        passengers = 1
+                    )
+                Log.d("Navigation", "Navigating with args: $toTickets")
+                findNavController().navigate(toTickets)
+            }
             comeBack.setOnClickListener {
                 MaterialDatePicker.Builder.datePicker().setTitleText("Дата обратного вылета")
                     .build().show(parentFragmentManager, MaterialDatePicker::class.java.name)
@@ -95,10 +108,11 @@ class SearchFragment : Fragment() {
                         offersTicketsAdapter.items = result.data.toUiItems()
                     }
 
-                    is AppResult.Failure -> {
-                        Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                    is AppResult.Failure -> Toast.makeText(
+                        requireContext(),
+                        "Что-то пошло не так",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

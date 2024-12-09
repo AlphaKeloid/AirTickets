@@ -1,0 +1,13 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="route_text_stub">Москва-Сочи</string>
+    <string name="info_text_stub">23 февраля, 1 пассажир</string>
+    <string name="filter_button_text">Фильтр</string>
+    <string name="price_chart_button_text">График цен</string>
+    <string name="badge_stub_text">Самый удобный</string>
+    <string name="ticket_ptice_text_stub">6 990 ₽</string>
+    <string name="departure_time_text_stub">03:15</string>
+    <string name="departure_airport_text_stub">VKO</string>
+    <string name="flight_time_text_stub">3.5ч в пути / Без пересадок</string>
+</resources>

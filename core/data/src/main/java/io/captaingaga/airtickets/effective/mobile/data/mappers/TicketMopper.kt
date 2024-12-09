@@ -2,6 +2,7 @@ package io.captaingaga.airtickets.effective.mobile.data.mappers
 
 import io.captaingaga.airtickets.effective.mobile.data.models.FlightPointModel
 import io.captaingaga.airtickets.effective.mobile.data.models.TicketModel
+import io.captaingaga.airtickets.effective.mobile.data.utils.DateTimeSeparateUtil
 import io.captaingaga.airtickets.effective.mobile.data.utils.FlightTimeUtil
 import io.captaingaga.airtickets.effective.mobile.data.utils.toRubles
 import io.captaingaga.airtickets.effective.mobile.domain.models.DomainFlightPoint
@@ -32,7 +33,8 @@ private fun HandLuggageDto.toDomainHandLuggage() = DomainHandLuggage(
 
 private fun DomainFlightPoint.toFlightPointModel() = FlightPointModel(
     town = this.town,
-    date = this.date,
+    date = DateTimeSeparateUtil(this.date).second,
+    time = DateTimeSeparateUtil(this.date).second,
     airport = this.airport
 )
 

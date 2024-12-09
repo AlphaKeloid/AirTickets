@@ -6,6 +6,7 @@ import io.captaingaga.airtickets.effective.mobile.data.di.useCasesModule
 import io.captaingaga.airtickets.effective.mobile.main.di.featureMainModule
 import io.captaingaga.airtickets.effective.mobile.network.networkModule
 import io.captaingaga.airtickets.effective.mobile.search.di.featureSearchModule
+import io.captaingaga.airtickets.effective.mobile.tickets.di.ticketsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -22,7 +23,8 @@ class AirTicketsApp : Application() {
                 repositoriesModule,
                 useCasesModule,
                 featureMainModule,
-                featureSearchModule
+                featureSearchModule,
+                ticketsModule
             )
         }
     }
