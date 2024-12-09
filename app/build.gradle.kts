@@ -35,6 +35,7 @@ dependencies {
         api(features.main)
         api(features.search)
         api(features.tickets)
+        api(features.stubs)
     }
 
     implementation(libs.androidx.core.ktx)

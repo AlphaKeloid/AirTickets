@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.captaingaga.airtickets.effective.mobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    // TODO: add stub screens
     private var _binding: ActivityMainBinding? = null
     private val binding get() = checkNotNull(_binding)
 
@@ -33,5 +32,17 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val navView: BottomNavigationView = binding.navView
         navView.setupWithNavController(navController)
+        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_main -> {
+                    navController.popBackStack(R.id.navigation_main, false) // Очистить стек до главной вкладки
+                    true
+                }
+                else -> {
+                    navController.navigate(item.itemId)
+                    true
+                }
+            }
+        }
     }
 }

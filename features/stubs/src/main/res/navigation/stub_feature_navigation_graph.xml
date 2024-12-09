@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_main">
-
-    <include app:graph="@navigation/navigation_main" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stub_feature_navigation_graph"
+    app:startDestination="@id/navigation_hotels">
 
     <fragment
         android:id="@+id/navigation_hotels"
         android:name="io.captaingaga.airtickets.effective.mobile.stub.BottomNavigationStubFragment"
-        android:label="BottomNavigationStubFragment" >
+        android:label="fragment_bottom_navigation_stub_hotels"
+        tools:layout="@layout/fragment_bottom_navigation_stub">
         <argument
             android:name="destination"
             app:argType="integer"
@@ -19,7 +19,8 @@
     <fragment
         android:id="@+id/navigation_briefly"
         android:name="io.captaingaga.airtickets.effective.mobile.stub.BottomNavigationStubFragment"
-        android:label="BottomNavigationStubFragment" >
+        android:label="fragment_bottom_navigation_stub_hotels"
+        tools:layout="@layout/fragment_bottom_navigation_stub">
         <argument
             android:name="destination"
             app:argType="integer"
@@ -29,7 +30,8 @@
     <fragment
         android:id="@+id/navigation_subscriptions"
         android:name="io.captaingaga.airtickets.effective.mobile.stub.BottomNavigationStubFragment"
-        android:label="BottomNavigationStubFragment" >
+        android:label="fragment_bottom_navigation_stub_hotels"
+        tools:layout="@layout/fragment_bottom_navigation_stub">
         <argument
             android:name="destination"
             app:argType="integer"
@@ -39,11 +41,14 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="io.captaingaga.airtickets.effective.mobile.stub.BottomNavigationStubFragment"
-        android:label="BottomNavigationStubFragment" >
+        android:label="fragment_bottom_navigation_stub_hotels"
+        tools:layout="@layout/fragment_bottom_navigation_stub">
         <argument
             android:name="destination"
             app:argType="integer"
             android:defaultValue="4"/>
     </fragment>
+
+
 
 </navigation>

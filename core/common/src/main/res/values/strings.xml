@@ -23,4 +23,9 @@
     <string name="sub_title_text_stub">Популярное направление</string>
     <string name="text_to_stub">Куда - Стамбул</string>
     <string name="text_from_placeholder">Откуда - Москва</string>
+    <string name="hotels">Отели</string>
+    <string name="briefly">Короче</string>
+    <string name="subscriptions">Подписки</string>
+    <string name="profile">Профиль</string>
+    <string name="stub_item_icon">stub item icon</string>
 </resources>
