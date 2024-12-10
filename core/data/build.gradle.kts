@@ -14,6 +14,7 @@ dependencies {
     projects.apply {
         api(core.domain)
         api(core.network)
+        api(core.database)
     }
     libs.apply {
         implementation(kotlinx.datetime)

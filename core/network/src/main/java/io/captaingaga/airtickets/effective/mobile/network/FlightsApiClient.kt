@@ -10,7 +10,7 @@ class FlightsApiClient(
 ) {
 
     operator fun invoke(): Retrofit = Retrofit.Builder()
-        .baseUrl("https://mock.effective.mobile")
+        .baseUrl("https://google.com")
         .client(httpClient())
         .addConverterFactory(
             Json.asConverterFactory(

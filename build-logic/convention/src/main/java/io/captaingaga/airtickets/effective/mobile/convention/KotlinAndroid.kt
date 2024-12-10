@@ -24,16 +24,6 @@ internal fun Project.configureKotlinAndroid(
         buildFeatures {
             viewBinding = true
         }
-
-        this.testOptions {
-            unitTests {
-                isIncludeAndroidResources = true
-                isReturnDefaultValues = true
-            }
-            unitTests.all {
-                it.useJUnitPlatform()
-            }
-        }
     }
 
 

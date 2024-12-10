@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".OffersBottomSheetFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/drag_handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/search_bar"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_48"
+                    app:cardBackgroundColor="@color/grey_4"
+                    app:cardCornerRadius="@dimen/space_16"
+                    app:cardElevation="@dimen/space_16"
+                    app:cardMaxElevation="@dimen/space_24"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="@dimen/space_16">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textFrom"
+                            style="?attr/textInputOutlinedDenseStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="flagNoExtractUi|actionNext"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:endIconDrawable="@drawable/close_24px"
+                            app:endIconMode="clear_text"
+                            app:endIconTint="@color/grey_7"
+                            app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+                            app:layout_constraintEnd_toEndOf="@+id/materialDivider"
+                            app:layout_constraintStart_toStartOf="@+id/materialDivider"
+                            app:placeholderText="@string/text_from_placeholder"
+                            app:placeholderTextAppearance="@style/TextAppearance.ButtonText"
+                            app:placeholderTextColor="@color/grey_6"
+                            app:startIconDrawable="@drawable/flight_takeoff_24px"
+                            app:startIconTint="@color/grey_7">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapSentences"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance.ButtonText"
+                                android:textColor="@color/white"
+                                tools:text="Москва" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textTo"
+                            style="?attr/textInputOutlinedDenseStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hapticFeedbackEnabled="true"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:endIconDrawable="@drawable/close_24px"
+                            app:endIconMode="clear_text"
+                            app:endIconTint="@color/grey_7"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/materialDivider"
+                            app:placeholderText="@string/text_to_stub"
+                            app:placeholderTextAppearance="@style/TextAppearance.ButtonText"
+                            app:placeholderTextColor="@color/grey_6"
+                            app:startIconDrawable="@drawable/search_24px"
+                            app:startIconTint="@color/grey_7">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="flagNoExtractUi|actionDone"
+                                android:inputType="textCapSentences"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance.ButtonText"
+                                android:textColor="@color/white" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/materialDivider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="@dimen/space_16"
+                            app:dividerColor="@color/grey_6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Space
+                    android:id="@+id/search_bar_spacer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_24"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/complex_route"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@color/green"
+                    android:src="@drawable/keyboard_command_key_24px"
+                    android:tint="@color/white"
+                    app:contentPadding="@dimen/space_10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_spacer"
+                    app:shapeAppearance="@style/RoundedShapeAppearance.Small" />
+
+                <TextView
+                    android:id="@+id/complex_route_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:text="@string/complex_route_text_stub"
+                    android:textAppearance="@style/TextAppearance.Text2"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/complex_route"
+                    app:layout_constraintStart_toStartOf="@+id/complex_route"
+                    app:layout_constraintTop_toBottomOf="@+id/complex_route" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/any_where"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@color/blue"
+                    android:src="@drawable/language_24px"
+                    android:tint="@color/white"
+                    app:contentPadding="@dimen/space_10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_spacer"
+                    app:shapeAppearance="@style/RoundedShapeAppearance.Small" />
+
+                <TextView
+                    android:id="@+id/any_where_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:text="@string/any_where_text_stub"
+                    android:textAppearance="@style/TextAppearance.Text2"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/any_where"
+                    app:layout_constraintStart_toStartOf="@+id/any_where"
+                    app:layout_constraintTop_toBottomOf="@+id/any_where" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/weekend"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@color/dark_blue"
+                    android:src="@drawable/calendar_month_24px"
+                    android:tint="@color/white"
+                    app:contentPadding="@dimen/space_10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_spacer"
+                    app:shapeAppearance="@style/RoundedShapeAppearance.Small" />
+
+                <TextView
+                    android:id="@+id/weekend_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:text="@string/weekend_text_stab"
+                    android:textAppearance="@style/TextAppearance.Text2"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/weekend"
+                    app:layout_constraintStart_toStartOf="@+id/weekend"
+                    app:layout_constraintTop_toBottomOf="@+id/weekend" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/last_minute_tickets"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@color/red"
+                    android:src="@drawable/local_fire_department_24px"
+                    android:tint="@color/white"
+                    app:contentPadding="@dimen/space_10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_spacer"
+                    app:shapeAppearance="@style/RoundedShapeAppearance.Small" />
+
+                <TextView
+                    android:id="@+id/last_minute_tickets_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:text="@string/last_minute_tickets_text_stub"
+                    android:textAppearance="@style/TextAppearance.Text2"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/last_minute_tickets"
+                    app:layout_constraintStart_toStartOf="@+id/last_minute_tickets"
+                    app:layout_constraintTop_toBottomOf="@+id/last_minute_tickets" />
+
+                <Space
+                    android:id="@+id/flow_spacer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_24"
+                    app:layout_constraintTop_toBottomOf="@+id/complex_route_text" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/from_container"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/grey_4"
+                    app:cardCornerRadius="@dimen/space_16"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/flow_spacer">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recommendations_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_16"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="16dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="16dp" />
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="complex_route,any_where, weekend, last_minute_tickets"
+                    app:flow_horizontalGap="48dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_spacer" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
