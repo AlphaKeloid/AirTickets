@@ -49,6 +49,11 @@ gradlePlugin {
             id = "airtickets.android.navigation.library"
             implementationClass = "AndroidNavigationLibraryConventionPlugin"
         }
+
+        register("roomAndroidLibrary") {
+            id = "airtickets.room.android.library"
+            implementationClass = "RoomAndroidLibraryConventionPlugin"
+        }
     }
 }
 

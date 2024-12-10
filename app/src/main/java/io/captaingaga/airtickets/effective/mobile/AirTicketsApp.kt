@@ -3,6 +3,7 @@ package io.captaingaga.airtickets.effective.mobile
 import android.app.Application
 import io.captaingaga.airtickets.effective.mobile.data.di.repositoriesModule
 import io.captaingaga.airtickets.effective.mobile.data.di.useCasesModule
+import io.captaingaga.airtickets.effective.mobile.database.di.databaseModule
 import io.captaingaga.airtickets.effective.mobile.main.di.featureMainModule
 import io.captaingaga.airtickets.effective.mobile.network.networkModule
 import io.captaingaga.airtickets.effective.mobile.search.di.featureSearchModule
@@ -19,6 +20,7 @@ class AirTicketsApp : Application() {
             androidLogger(Level.DEBUG)
             androidContext(this@AirTicketsApp)
             modules(
+                databaseModule,
                 networkModule,
                 repositoriesModule,
                 useCasesModule,
