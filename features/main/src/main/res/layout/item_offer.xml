@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/artist_icon"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/die_antwoord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedShapeAppearance.Medium" />
+
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_8"
+        tools:text="Die Antwoord"
+        android:textAppearance="@style/TextAppearance.Title3"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/artist_icon" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_8"
+        tools:text="Санкт-Петербург"
+        android:textAppearance="@style/TextAppearance.Text2"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/artist_name" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="от 20 034 р"
+        android:textAppearance="@style/TextAppearance.Text2"
+        android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/travel_24px"
+        app:drawableTint="@color/grey_7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

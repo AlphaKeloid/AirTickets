@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -19,5 +20,15 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Air Tickets"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "AirTickets"
 include(":app")
+include(":core:domain")
+include(":core:common")
+include(":core:network")
+include(":core:data")
+include(":features:main")
+include(":features:search")
+include(":features:tickets")
+include(":features:stubs")
+include(":core:database")
