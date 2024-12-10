@@ -129,7 +129,7 @@ class OffersBottomSheetFragment : BottomSheetDialogFragment() {
                 addTextChangedListener(
                     CyrillicInputValidation(
                         context = requireContext(),
-                        editText = textFrom.editText
+                        editText = textTo.editText
                     ) {
                         mainViewModel.updateArrive(it)
                     }
