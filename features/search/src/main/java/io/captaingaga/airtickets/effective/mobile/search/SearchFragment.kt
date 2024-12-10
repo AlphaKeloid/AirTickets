@@ -24,23 +24,16 @@ import io.captaingaga.airtickets.effective.mobile.common.R
 import io.captaingaga.airtickets.effective.mobile.data.utils.toFormattedDate
 import io.captaingaga.airtickets.effective.mobile.search.comppnents.UITicketOfferItem
 import io.captaingaga.airtickets.effective.mobile.search.comppnents.asString
-import io.captaingaga.airtickets.effective.mobile.search.comppnents.isEmpty
 import io.captaingaga.airtickets.effective.mobile.search.comppnents.toUiItems
 import io.captaingaga.airtickets.effective.mobile.search.databinding.FragmentSearchBinding
 import io.captaingaga.airtickets.effective.mobile.search.ui.offersTicketsAdapter
 import io.captaingaga.airtickets.effective.mobile.search.viewmodels.OffersTicketsViewModel
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-private const val ARG_FROM_FIELD = "fromText"
-private const val ARG_TO_FIELD = "toText"
+import org.koin.core.parameter.parametersOf
 
 class SearchFragment : Fragment() {
-
-    private var routeParam: String? = null
-    private var textFromField: String? = null
-    private var textToField: String? = null
-    private var date: String? = null
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = checkNotNull(_binding)
@@ -53,7 +46,10 @@ class SearchFragment : Fragment() {
     }
 
     private val args: SearchFragmentArgs by navArgs()
-    private val offersTicketsViewModel: OffersTicketsViewModel by viewModel()
+    private val offersTicketsViewModel: OffersTicketsViewModel by viewModel {
+        parametersOf(args.from, args.to)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -62,43 +58,26 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        _binding?.let {
-            outState.putString(ARG_FROM_FIELD, it.textFrom.text.toString())
-            outState.putString(ARG_TO_FIELD, it.textTo.text.toString())
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        textFromField = savedInstanceState?.getString(ARG_FROM_FIELD) ?: textFromField
-        textToField = savedInstanceState?.getString(ARG_TO_FIELD) ?: textToField
-        if (savedInstanceState == null) {
-            offersTicketsViewModel.updateRoute(args.from, args.to)
-        }
+
         lifecycleScope.launch {
-            offersTicketsViewModel.date.collect { date = it }
+            offersTicketsViewModel.date
         }
 
         binding.apply {
             goBack.setOnClickListener { findNavController().popBackStack() }
-            textFrom.text = textFromField
-            textTo.text = textToField
             swap.setOnClickListener { swapText() }
             comeBack.setOnClickListener {
                 datePickerDialog("Дата обратного вылета")
                     .show(parentFragmentManager, MaterialDatePicker::class.java.name)
             }
             datePicker.apply {
-                text = date
                 setOnClickListener {
                     val picker = datePickerDialog("Дата вылета")
                     picker.addOnPositiveButtonClickListener { epochMillis ->
                         val selected = epochMillis.toFormattedDate()
                         offersTicketsViewModel.updateDate(selected)
-                        datePicker.text = selected
-                        date = selected
                     }
                     picker.show(parentFragmentManager, MaterialDatePicker::class.java.name)
                 }
@@ -111,13 +90,18 @@ class SearchFragment : Fragment() {
             }
             showAll.visibility = View.GONE
             showAllTickets.setOnClickListener {
-                val toTickets = SearchFragmentDirections
-                    .actionSearchFragmentToTicketsFeatureNavigationGraph(
-                        route = routeParam.orEmpty(),
-                        date = date.orEmpty(),
-                        passengers = 1
-                    )
-                findNavController().navigate(toTickets)
+                lifecycleScope.launch {
+                    val route = offersTicketsViewModel.route.first()
+                    val date = offersTicketsViewModel.date.first()
+
+                    val toTickets = SearchFragmentDirections
+                        .actionSearchFragmentToTicketsFeatureNavigationGraph(
+                            route = route.asString(),
+                            date = date,
+                            passengers = 1
+                        )
+                    findNavController().navigate(toTickets)
+                }
             }
 
             directFlightsRecycler.apply {
@@ -135,12 +119,15 @@ class SearchFragment : Fragment() {
             }
         }
         lifecycleScope.launch {
-            offersTicketsViewModel.route.collect { param ->
-                routeParam = param.takeIf { !it.isEmpty() }?.asString()
-                textFromField = param.from
-                textToField = param.to
-                binding.textFrom.text = textFromField
-                binding.textTo.text = textToField
+            offersTicketsViewModel.date.collect { value ->
+                binding.datePicker.text = value
+            }
+        }
+
+        lifecycleScope.launch {
+            offersTicketsViewModel.route.collect { value ->
+                binding.textFrom.text = value.from
+                binding.textTo.text = value.to
             }
         }
 
@@ -168,10 +155,6 @@ class SearchFragment : Fragment() {
         binding.apply {
             val from = textFrom.text.toString()
             val to = textTo.text.toString()
-            textFrom.text = to
-            textTo.text = from
-            textFromField = to
-            textToField = from
             offersTicketsViewModel.updateRoute(to, from)
         }
     }

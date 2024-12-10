@@ -5,5 +5,12 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val featureSearchModule = module {
-    viewModel { OffersTicketsViewModel(get()) }
+    viewModel { parameters ->
+        OffersTicketsViewModel(
+            get(),
+            get(),
+            from = parameters.get(),
+            to = parameters.get()
+        )
+    }
 }
