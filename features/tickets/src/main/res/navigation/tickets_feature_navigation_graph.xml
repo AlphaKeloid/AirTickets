@@ -19,5 +19,12 @@
         <argument
             android:name="passengers"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_ticketsFragment_to_filtersStubFragment"
+            app:destination="@id/filtersStubFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/filtersStubFragment"
+        android:name="io.captaingaga.airtickets.effective.mobile.stub.FiltersStubFragment"
+        android:label="FiltersStubFragment" />
 </navigation>

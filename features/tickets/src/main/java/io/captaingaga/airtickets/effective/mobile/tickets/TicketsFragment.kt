@@ -63,7 +63,11 @@ class TicketsFragment : Fragment() {
                 adapter = ticketsAdapter
                 addItemDecoration(TicketItemDecorator(requireContext()))
             }
-            filter.setOnClickListener { }
+            filter.setOnClickListener {
+                val toFiltersStub =
+                    TicketsFragmentDirections.actionTicketsFragmentToFiltersStubFragment()
+                findNavController().navigate(toFiltersStub)
+            }
             chart.setOnClickListener { }
         }
         lifecycleScope.launch {

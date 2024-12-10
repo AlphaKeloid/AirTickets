@@ -15,6 +15,7 @@ dependencies {
     projects.apply {
         api(core.common)
         api(core.data)
+        api(features.stubs)
     }
     libs.apply {
         api(bundles.adapter)

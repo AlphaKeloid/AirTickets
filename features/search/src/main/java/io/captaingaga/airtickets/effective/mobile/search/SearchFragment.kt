@@ -103,8 +103,12 @@ class SearchFragment : Fragment() {
                     picker.show(parentFragmentManager, MaterialDatePicker::class.java.name)
                 }
             }
-            howMany.setOnClickListener {  }
-            filters.setOnClickListener {  }
+            howMany.setOnClickListener { }
+            filters.setOnClickListener {
+                val toFiltersStub =
+                    SearchFragmentDirections.actionSearchFragmentToFiltersStubFragment()
+                findNavController().navigate(toFiltersStub)
+            }
             showAll.visibility = View.GONE
             showAllTickets.setOnClickListener {
                 val toTickets = SearchFragmentDirections

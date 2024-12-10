@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.airtickets.koin.android.library)
     alias(libs.plugins.airtickets.android.navigation.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -16,6 +17,7 @@ dependencies {
         api(core.common)
         api(core.data)
         api(features.tickets)
+        api(features.stubs)
     }
     libs.apply {
         api(bundles.adapter)
