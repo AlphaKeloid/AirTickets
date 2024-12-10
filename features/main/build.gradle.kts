@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.airtickets.koin.android.library)
     alias(libs.plugins.airtickets.android.navigation.library)
+    id("kotlin-parcelize")
 }
 
 android {

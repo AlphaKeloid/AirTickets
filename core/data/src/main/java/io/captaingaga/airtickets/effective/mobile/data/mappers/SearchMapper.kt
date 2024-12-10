@@ -6,7 +6,7 @@ import io.captaingaga.airtickets.effective.mobile.domain.models.DomainSearch
 
 fun SearchEntity.toDomainSearch() = DomainSearch(
     id = this.id,
-    destination = this.destination
+    destination = this.destination.orEmpty()
 )
 
 fun DomainSearch.toSearchModel() = SearchModel(
@@ -15,6 +15,11 @@ fun DomainSearch.toSearchModel() = SearchModel(
 )
 
 fun DomainSearch.toSearchEntity() = SearchEntity(
+    id = this.id,
+    destination = this.destination
+)
+
+fun SearchModel.toDomainSearch() = DomainSearch(
     id = this.id,
     destination = this.destination
 )

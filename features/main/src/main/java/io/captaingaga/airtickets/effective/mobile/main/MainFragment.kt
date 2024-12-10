@@ -12,21 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import io.captaingaga.airtickets.effective.mobile.common.AppResult
 import io.captaingaga.airtickets.effective.mobile.common.GenericDiffCallback
+import io.captaingaga.airtickets.effective.mobile.main.components.CyrillicInputValidation
 import io.captaingaga.airtickets.effective.mobile.main.components.UiOfferItem
 import io.captaingaga.airtickets.effective.mobile.main.components.toUiItems
 import io.captaingaga.airtickets.effective.mobile.main.databinding.FragmentMainBinding
-import io.captaingaga.airtickets.effective.mobile.main.ui.CyrillicInputValidation
 import io.captaingaga.airtickets.effective.mobile.main.ui.OfferItemDecorator
 import io.captaingaga.airtickets.effective.mobile.main.ui.offerAdapter
 import io.captaingaga.airtickets.effective.mobile.main.viewmodels.MainViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-private const val ARG_INPUT_FIELD_FROM ="input_field_from"
-
 class MainFragment : Fragment() {
 
-    private var inputFieldFrom: String? = null
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = checkNotNull(_binding)
@@ -39,16 +36,9 @@ class MainFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by viewModel<MainViewModel>()
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        _binding?.let {
-            outState.putString(ARG_INPUT_FIELD_FROM, it.textFrom.text.toString())
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
@@ -56,24 +46,25 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO: save user input
+
         lifecycleScope.launch {
-            mainViewModel.textFrom.collect {
-                inputFieldFrom = it
+            mainViewModel.params.collect { params ->
+                binding.apply {
+                    if (textFrom.text.isEmpty()) textFrom.setText(params.departFrom)
+                }
             }
         }
         binding.apply {
-            textFrom.setText(inputFieldFrom)
             textFrom.addTextChangedListener(
                 CyrillicInputValidation(
                     context = requireContext(),
                     editText = textFrom
                 ) {
-                    mainViewModel.updateTextFrom(it)
+                    mainViewModel.updateDepart(it)
                 }
             )
             textTo.setOnClickListener {
-                OffersBottomSheetFragment.newInstance(inputFieldFrom.orEmpty())
+                OffersBottomSheetFragment()
                     .show(parentFragmentManager, OffersBottomSheetFragment.TAG)
             }
             offersRecycler.apply {

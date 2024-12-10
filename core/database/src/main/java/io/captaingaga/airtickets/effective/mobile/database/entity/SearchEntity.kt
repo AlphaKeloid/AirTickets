@@ -11,5 +11,5 @@ data class SearchEntity(
     val id: Long,
 
     @ColumnInfo(name = "destination")
-    val destination: String
+    val destination: String? = null
 )

@@ -1,4 +1,4 @@
-package io.captaingaga.airtickets.effective.mobile.main.ui
+package io.captaingaga.airtickets.effective.mobile.main.components
 
 import android.content.Context
 import android.text.Editable
