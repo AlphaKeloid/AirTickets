@@ -4,7 +4,7 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_main">
 
-    <include app:graph="@navigation/navigation_main" />
+    <include app:graph="@navigation/main_feature_navigation_graph" />
 
     <fragment
         android:id="@+id/navigation_hotels"

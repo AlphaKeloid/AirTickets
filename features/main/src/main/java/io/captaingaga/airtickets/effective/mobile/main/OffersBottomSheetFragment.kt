@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -149,10 +150,16 @@ class OffersBottomSheetFragment : BottomSheetDialogFragment() {
                 mainViewModel.updateArrive(random)
             }
 
-            // stubs
-            complexRoute.setOnClickListener { /*TODO:  navigateToSearch to complexRoute stub */ }
-            weekend.setOnClickListener { /*TODO:  navigateToSearch to weekend stub */ }
-            lastMinuteTickets.setOnClickListener { /*TODO:  navigateToSearch to lastMinuteTickets stub */ }
+
+            complexRoute.setOnClickListener {
+                navigateStub(MainFragmentDirections.actionFragmentMainToComplexRoute(1))
+            }
+            weekend.setOnClickListener {
+                navigateStub(MainFragmentDirections.actionFragmentMainToNavigateWeekend(2))
+            }
+            lastMinuteTickets.setOnClickListener {
+                navigateStub(MainFragmentDirections.actionFragmentMainToLastMinuteTickets(3))
+            }
 
         }
 
@@ -174,6 +181,11 @@ class OffersBottomSheetFragment : BottomSheetDialogFragment() {
                 )
             findNavController().navigate(toSearch)
         }
+    }
+
+    private fun navigateStub(nav: NavDirections) {
+        bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_HIDDEN
+        findNavController().navigate(nav)
     }
 
     override fun onDestroyView() {
