@@ -77,6 +77,17 @@
                     app:layout_constraintTop_toTopOf="@+id/textFrom"
                     app:tint="@color/white" />
 
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/go_back_icon"
+                    android:padding="@dimen/space_4"
+                    android:src="@drawable/close_24px"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textTo"
+                    app:layout_constraintTop_toBottomOf="@+id/textFrom"
+                    app:tint="@color/white" />
+
                 <com.google.android.material.divider.MaterialDivider
                     android:id="@+id/divider"
                     android:layout_width="0dp"
